@@ -17,4 +17,8 @@ public class BookService {
     public int findNoOfBooks() {
         return bookRepository.findAll().size();
     }
+
+    public void sendEmail(String message) {
+        emailRepository.sendEmail(message);
+    }
 }
