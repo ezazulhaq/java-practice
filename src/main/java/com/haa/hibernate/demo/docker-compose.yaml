@@ -1,0 +1,27 @@
+# Use root/mysql as user/password credentials
+version: "3.1"
+services:
+  db:
+    image: mysql:5.7.34
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_USER: hbstudent
+      MYSQL_PASSWORD: hbstudent
+      MYSQL_DATABASE: hb_student_tracker
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  adminer:
+    depends_on:
+      - db
+    image: adminer
+    restart: always
+    ports:
+      - 8088:8080
+
+volumes:
+  mysql-data:
