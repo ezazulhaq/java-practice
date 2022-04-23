@@ -1,4 +1,4 @@
-package com.haa.datastructure.binarytree;
+package com.haa.datastructure.binarytree.ordertype;
 
 class Node {
     int key;
